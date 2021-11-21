@@ -1,12 +1,13 @@
 name: learn-github-actions 
 on: [push]
-jobs:
-  check-bats-version:
+jobs: # groups together all jobs
+  check-bats-version: # name of job
     runs-on: ubuntu-latest 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v2.4.0 # communiuty built action
+      - uses: actions/setup-node@v2 # communiuty built action
         with: 
           node-version: '14'
-      - run: npm install -g bats 
-      - run: bats -v
+      - run: npm install -g bats # run on 'runner'
+      - run: bats -v # run on 'runner'
+      - uses: ./.github/actions
